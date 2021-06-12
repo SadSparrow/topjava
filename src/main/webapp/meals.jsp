@@ -16,17 +16,15 @@
             <th>Description</th>
             <th>Calories</th>
         </tr>
-        <tr>
-            <jsp:useBean id="meals" scope="request" type="java.util.List"/>
-            <c:forEach items="${meals}" var="meal">
-                <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.Meal"/>
-                <td>${meal.date}</td>
-                <td>${meal.description}</td>
-                <td>${meal.calories}</td>
-            </c:forEach>
-        </tr>
+        <c:forEach items="${meals}" var="mealTo">
+            <jsp:useBean id="mealTo" type="ru.javawebinar.topjava.model.MealTo"/>
+            <tr style="color: ${mealTo.excess ? 'red' : 'green'}">
+                <td>${mealTo.dateTime}</td>
+                <td>${mealTo.description}</td>
+                <td>${mealTo.calories}</td>
+            </tr>
+        </c:forEach>
     </table>
-    <br/>
 </section>
 </body>
 </html>
